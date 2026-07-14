@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="G:\TicTacToe\build\CMakeFiles\7027b6371bc90dbb7d36c71972832b6a\timestamp_(CONFIG).rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="G:\TicTacToe\build\CMakeFiles\8a458b316950bf73117c732b530bccc5\tictactoe_autogen.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="G:\TicTacToe\src\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="G:\TicTacToe\build\src\CMakeFiles\tictactoe_autogen" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{E55AB56A-7934-397D-B6D8-726BDAADC0DE}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

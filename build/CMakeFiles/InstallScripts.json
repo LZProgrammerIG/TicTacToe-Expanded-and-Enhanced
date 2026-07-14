@@ -1,0 +1,8 @@
+{
+	"InstallScripts" : 
+	[
+		"G:/TicTacToe/build/cmake_install.cmake",
+		"G:/TicTacToe/build/src/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

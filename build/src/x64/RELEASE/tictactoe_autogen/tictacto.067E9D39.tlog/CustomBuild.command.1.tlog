@@ -1,0 +1,40 @@
+^G:\TICTACTOE\BUILD\CMAKEFILES\7027B6371BC90DBB7D36C71972832B6A\TIMESTAMP_(CONFIG).RULE
+setlocal
+cd G:\TicTacToe\build\src
+if %errorlevel% neq 0 goto :cmEnd
+G:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_autogen G:/TicTacToe/build/src/CMakeFiles/tictactoe_autogen.dir/AutogenInfo.json Release
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/TicTacToe/build/src/tictactoe_autogen/timestamp_Release
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_transform_depfile "Visual Studio 17 2022" MSBuildAdditionalInputs G:/TicTacToe G:/TicTacToe/src G:/TicTacToe/build G:/TicTacToe/build/src G:/TicTacToe/build/src/tictactoe_autogen/deps_Release G:/TicTacToe/build/CMakeFiles/d/6bb892edd4f0425b64f24c3ce5b41ba7df9e349725ed995c730397e75a91fdf4.AdditionalInputs
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^G:\TICTACTOE\BUILD\CMAKEFILES\8A458B316950BF73117C732B530BCCC5\TICTACTOE_AUTOGEN.RULE
+setlocal
+cd G:\TicTacToe\build\src
+if %errorlevel% neq 0 goto :cmEnd
+G:
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^G:\TICTACTOE\SRC\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SG:/TicTacToe -BG:/TicTacToe/build --check-stamp-file G:/TicTacToe/build/src/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
