@@ -1,6 +1,7 @@
 add_executable(tictactoe
     main.cpp
     mainWindow.cpp
+    gameStateManager.cpp
 )
 
 target_link_libraries(tictactoe PRIVATE
