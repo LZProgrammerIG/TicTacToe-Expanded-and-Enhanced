@@ -2,6 +2,7 @@
 
 
 GameStateManager::GameStateManager() {
+    GameMode = EGameMode::AI;
     Initialise();
 }
 

@@ -1,3 +1,8 @@
+enum class EGameMode {
+    COOP,
+    AI
+};
+
 enum class EPlayer {
     MAX,
     MIN
@@ -7,9 +12,10 @@ enum class EPlayer {
 class GameStateManager {
 public:
     int Board[9];
+    EGameMode GameMode;
+    EPlayer Player;
 
 private:
-    EPlayer Player;
     int Result;
 
 public:

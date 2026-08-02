@@ -1,6 +1,7 @@
 add_executable(tictactoe
     main.cpp
     mainWindow.cpp
+    mainMenu.cpp
     gameStateManager.cpp
 )
 

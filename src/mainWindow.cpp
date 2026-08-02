@@ -21,8 +21,8 @@ MainWindow::MainWindow(QWidget* parent) : QWidget(parent) {
         }
     }
 
-    setObjectName("Window");
-    setStyleSheet("#Window {background-color: #333333; }");
+    setObjectName("GameWindow");
+    setStyleSheet("#GameWindow {background-color: #333333; }");
     setLayout(GridLayout);
 
     GameManager = new GameStateManager();
@@ -58,7 +58,6 @@ void MainWindow::Reset(int result) {
         if (!Button) {
             continue;
         }
-
         Button -> setText(QString(""));
         connect(Button, SIGNAL(clicked()), this, SLOT(OnButtonClicked()) );
         GameManager -> Initialise();
@@ -68,31 +67,38 @@ void MainWindow::Reset(int result) {
 
 void MainWindow::OnButtonClicked() {
     QPushButton* Button = qobject_cast<QPushButton*> (QObject::sender());
-    if (!Button) {
+    if (!Button || !GameManager) {
         return;
     }
 
-    Button -> setText(QString("X"));
-    disconnect(Button, SIGNAL(clicked()), this, SLOT(OnButtonClicked()) );
-
+    QString text = (GameManager -> Player == EPlayer::MAX) ? QString("X") : QString("O");
+    Button -> setText(text);
     int index = Button -> objectName().toInt();
-    GameManager -> Board[index] = 1;
+    GameManager -> Board[index] = (GameManager -> Player == EPlayer::MAX) ? 1 : -1;
+    GameManager -> Player = (GameManager -> Player == EPlayer::MAX) ? EPlayer::MIN : EPlayer::MAX;
+    disconnect(Button, SIGNAL(clicked()), this, SLOT(OnButtonClicked()) );    
 
-    index = -1;
-    int result = GameManager -> Minimax(EPlayer::MIN, index);
-    if (index == -1) {
-        Reset(result);
-        return;
+    int result = 0;
+    if (GameManager -> GameMode == EGameMode::AI) {
+        // Player is always MAX (X).
+        GameManager -> Player = EPlayer::MAX;
+
+        index = -1;
+        // AI is always going to be a MIN Player (O).
+        result = GameManager -> Minimax(EPlayer::MIN, index);
+        if (index == -1) {
+            Reset(result);
+            return;
+        }
+        GameManager -> Board[index] = -1;
+
+        Button = qobject_cast<QPushButton*> (GridLayout -> itemAt(index) -> widget());
+        if (!Button) {
+            return;
+        }
+        Button -> setText(QString("O"));
+        disconnect(Button, SIGNAL(clicked()), this, SLOT(OnButtonClicked()) );
     }
-
-    GameManager -> Board[index] = -1;
-    Button = qobject_cast<QPushButton*> (GridLayout -> itemAt(index) -> widget());
-    if (!Button) {
-        return;
-    }
-
-    Button -> setText(QString("O"));
-    disconnect(Button, SIGNAL(clicked()), this, SLOT(OnButtonClicked()) );
 
     if (GameManager -> IsTerminalState(result)) {
         Reset(result);

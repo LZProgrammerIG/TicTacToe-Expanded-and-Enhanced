@@ -13,8 +13,10 @@ public:
     void Reset(int result);
 
 private:
-    QGridLayout* GridLayout;
-    GameStateManager* GameManager;
+    QGridLayout* GridLayout = nullptr;
+
+public:
+    GameStateManager* GameManager = nullptr;
 
 private Q_SLOTS:
     void OnButtonClicked();
