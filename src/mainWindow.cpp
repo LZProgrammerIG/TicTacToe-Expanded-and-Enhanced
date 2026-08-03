@@ -24,6 +24,7 @@ MainWindow::MainWindow(QWidget* parent) : QWidget(parent) {
     setObjectName("GameWindow");
     setStyleSheet("#GameWindow {background-color: #333333; }");
     setLayout(GridLayout);
+    setAttribute(Qt::WA_StyledBackground, true);
 
     GameManager = new GameStateManager();
 }

@@ -8,9 +8,9 @@
 
 
 MainMenu::MainMenu(QWidget *parent) : QWidget(parent) {
+    QVBoxLayout* OuterVerticalBox = new QVBoxLayout(this);
+    
     GameWindow = new MainWindow(this);
-    GameWindow -> hide();
-
     Panel = new QWidget(this);
 
     MenuText = new QLabel(QString("Tic Tac Toe"), Panel);
@@ -23,13 +23,19 @@ MainMenu::MainMenu(QWidget *parent) : QWidget(parent) {
     VerticalBox -> addWidget(PlayWithAiButton);
     VerticalBox -> addSpacing(20);
     VerticalBox -> addWidget(PlayWithFriendButton);
+    VerticalBox -> setContentsMargins(10, 10, 10, 10);
 
     Panel -> setLayout(VerticalBox);
 
+    OuterVerticalBox -> addWidget(Panel);
+    OuterVerticalBox -> addWidget(GameWindow);
+    OuterVerticalBox -> setContentsMargins(0, 0, 0, 0);
+    setLayout(OuterVerticalBox);
+    GameWindow -> hide();
+    Panel -> show();
+
     connect(PlayWithAiButton, &QPushButton::clicked, this, &MainMenu::OnButtonClicked);
     connect(PlayWithFriendButton, &QPushButton::clicked, this, &MainMenu::OnButtonClicked);
-
-    Panel -> show();
 }
 
 
