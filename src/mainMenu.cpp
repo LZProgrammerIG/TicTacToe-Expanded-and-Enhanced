@@ -14,12 +14,14 @@ MainMenu::MainMenu(QWidget *parent) : QWidget(parent) {
     Panel = new QWidget(this);
 
     MenuText = new QLabel(QString("Tic Tac Toe"), Panel);
+    MenuText -> setWordWrap(true);
+    MenuText -> setFont(QFont(QString("Arial"), 40));
     PlayWithAiButton = new QPushButton(QString("Play with AI"), Panel);
     PlayWithFriendButton = new QPushButton(QString("Play with Friend"), Panel);
 
     QVBoxLayout* VerticalBox = new QVBoxLayout(Panel);
     VerticalBox -> addWidget(MenuText);
-    VerticalBox -> addSpacing(100);
+    //VerticalBox -> addSpacing(100);
     VerticalBox -> addWidget(PlayWithAiButton);
     VerticalBox -> addSpacing(20);
     VerticalBox -> addWidget(PlayWithFriendButton);
